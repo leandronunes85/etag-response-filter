@@ -13,6 +13,19 @@ import java.util.function.Function;
 
 import static java.lang.String.format;
 
+/**
+ * {@link ContainerResponseFilter} implementation that handles ETag generation as well as If-None-Match request
+ * Header. This filter will erase the contents of the generated response (headers and payload) if the generated ETag value
+ * and the provided If-None-Match request Header matches each other. In such cases the status code will also be updated
+ * to 304 (Not Modified).
+ * <p/>
+ * ETag will be calculated based on the {@link Object#toString()} method of the response entity unless it implements
+ * {@link ETaggable} where the {@link ETaggable#getEntityRepresentation()} method will be used instead.
+ *
+ * @see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETag Header Field Definition</a>
+ * @see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.26">If-None-Match Header Field Definition</a>
+ */
+@ETag
 public class ETagResponseFilter implements ContainerResponseFilter {
 
     private final Function<String, String> hashFunction;
