@@ -1,4 +1,4 @@
-package com.leandronunes85.etag_response_filter.stub;
+package com.leandronunes85.etag.responsefilter.stub;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 

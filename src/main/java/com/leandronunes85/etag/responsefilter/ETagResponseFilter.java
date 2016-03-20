@@ -1,5 +1,7 @@
-package com.leandronunes85.etag_response_filter;
+package com.leandronunes85.etag.responsefilter;
 
+import com.leandronunes85.etag.ETag;
+import com.leandronunes85.etag.ETaggable;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.ws.rs.container.ContainerRequestContext;

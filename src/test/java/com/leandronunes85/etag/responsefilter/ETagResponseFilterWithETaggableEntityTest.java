@@ -1,5 +1,6 @@
-package com.leandronunes85.etag_response_filter;
+package com.leandronunes85.etag.responsefilter;
 
+import com.leandronunes85.etag.ETaggable;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

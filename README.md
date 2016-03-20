@@ -8,7 +8,7 @@ For using it you simply need to register this new ContainerResponseFilter as par
 it would look something like:
 
 ```java
-import com.leandronunes85.etag_response_filter.ETagResponseFilter;
+import com.leandronunes85.etag.responsefilter.ETagResponseFilter;
 
 ...
 
@@ -25,7 +25,7 @@ import com.leandronunes85.etag_response_filter.ETagResponseFilter;
 Then you just have to annotate whichever resource(s) you want with the @ETag annotation in order for it to be used:
 
 ```java
-import com.leandronunes85.etag_response_filter.ETag;
+import com.leandronunes85.etag.ETag;
 
 ...
 

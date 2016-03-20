@@ -1,4 +1,4 @@
-package com.leandronunes85.etag_response_filter;
+package com.leandronunes85.etag.responsefilter;
 
 import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.Request;

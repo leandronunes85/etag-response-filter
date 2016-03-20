@@ -1,6 +1,6 @@
-package com.leandronunes85.etag_response_filter;
+package com.leandronunes85.etag.responsefilter;
 
-import com.leandronunes85.etag_response_filter.stub.ContainerResponseContextStub;
+import com.leandronunes85.etag.responsefilter.stub.ContainerResponseContextStub;
 import org.junit.Before;
 import org.mockito.Mock;
 
