@@ -20,7 +20,7 @@ public abstract class ETagResponseFilterHashingEntityAbstractTest extends ETagRe
     public void setUpVictimWithHashFunction() {
         Function<String, String> hashFunction = mock(Function.class);
         victim = new ETagResponseFilter(hashFunction);
-        when(hashFunction.apply(EXPECTED_ENTITY_REPRESENTATION)).thenReturn(CALCULATED_ETAG);
+        when(hashFunction.apply(getExpectedEntityRepresentation())).thenReturn(CALCULATED_ETAG);
     }
 
     @Before
@@ -42,4 +42,8 @@ public abstract class ETagResponseFilterHashingEntityAbstractTest extends ETagRe
     }
 
     protected abstract Object getEntity();
+
+    protected String getExpectedEntityRepresentation() {
+        return EXPECTED_ENTITY_REPRESENTATION;
+    }
 }

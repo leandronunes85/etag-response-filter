@@ -8,6 +8,7 @@ import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -18,7 +19,7 @@ import static java.lang.String.format;
  * Header. This filter will erase the contents of the generated response (headers and payload) if the generated ETag value
  * and the provided If-None-Match request Header matches each other. In such cases the status code will also be updated
  * to 304 (Not Modified).
- * <p/>
+ * <p>
  * ETag will be calculated based on the {@link Object#toString()} method of the response entity unless it implements
  * {@link ETaggable} where the {@link ETaggable#getEntityRepresentation()} method will be used instead.
  *
@@ -66,11 +67,30 @@ public class ETagResponseFilter implements ContainerResponseFilter {
             return Optional.empty();
         }
 
-        String representation = responseContext.getEntity() instanceof ETaggable ?
-                ((ETaggable) responseContext.getEntity()).getEntityRepresentation() :
-                responseContext.getEntity().toString();
+        String representation = getEntityRepresentation(responseContext.getEntity());
 
         return Optional.of(new EntityTag(this.hashFunction.apply(representation), true));
+    }
+
+    private static String getEntityRepresentation(Object entity) {
+
+        if (entity == null) {
+            return "";
+        }
+
+        if (entity instanceof ETaggable) {
+            return ((ETaggable) entity).getEntityRepresentation();
+        }
+
+        if (entity instanceof Collection) {
+            StringBuilder sb = new StringBuilder();
+            for (Object element : (Collection) entity) {
+                sb.append(getEntityRepresentation(element));
+            }
+            return sb.toString();
+        }
+
+        return entity.toString();
     }
 
     private static void updateResponseContextContents(ContainerResponseContext responseContext, Response.ResponseBuilder responseBuilder) {
