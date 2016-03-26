@@ -1,11 +1,12 @@
 # ETag Response Filter
 
-This project contains a ResponseFilter implementation that handles both ETag creation and If-None-Match header checking.
+This project contains a ResponseFilter implementation that handles both ETag creation and If-None-Match/If-Match header 
+checking.
 
 ## Usage
 
-For using it you simply need to register this new ContainerResponseFilter as part of your service. In Dropwizard, for instance,
-it would look something like:
+For using it you simply need to register this new ContainerResponseFilter as part of your service. In Dropwizard, for 
+instance, it would look something like:
 
 ```java
 import com.leandronunes85.etag.responsefilter.ETagResponseFilter;
