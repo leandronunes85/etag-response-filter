@@ -6,6 +6,10 @@
     <artifactId>etag-response-filter</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>ETag Response Filter</name>
+    <description>JAX-RS response filter implementation for ETag handling</description>
+    <url>https://github.com/leandronunes85/etag-response-filter</url>
+
     <licenses>
         <license>
             <name>MIT License</name>
