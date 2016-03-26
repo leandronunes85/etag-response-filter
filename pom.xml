@@ -4,7 +4,7 @@
 
     <groupId>com.leandronunes85.jax-rs</groupId>
     <artifactId>etag-response-filter</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <name>ETag Response Filter</name>
     <description>JAX-RS response filter implementation for ETag handling</description>
